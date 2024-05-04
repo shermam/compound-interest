@@ -11,7 +11,7 @@ if (!icForm) throw new Error("form not found");
  *
  * @returns {number}
  */
-function get(formData, field) {
+function getNumber(formData, field) {
   const value = formData.get(field);
   if (!value) throw new Error(`field ${field} not found`);
   return Number(value);
@@ -40,11 +40,11 @@ function renderResult({ total, totalInvested, totalInterest }) {
 icForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(icForm);
-  const initialValue = get(formData, "ic-initial-value");
-  const icPeriodicValue = get(formData, "ic-periodic-value");
-  const icMonthlyInterestRate = get(formData, "ic-monthly-interest-rate");
-  const icPeriod = get(formData, "ic-period");
-  const icPeriodUnit = get(formData, "ic-period-unit");
+  const initialValue = getNumber(formData, "ic-initial-value");
+  const icPeriodicValue = getNumber(formData, "ic-periodic-value");
+  const icMonthlyInterestRate = getNumber(formData, "ic-monthly-interest-rate");
+  const icPeriod = getNumber(formData, "ic-period");
+  const icPeriodUnit = getNumber(formData, "ic-period-unit");
 
   const periodMonths = icPeriod * icPeriodUnit;
   const monthlyInterestRate = icMonthlyInterestRate / 100;
