@@ -8,6 +8,57 @@
   </head>
   <body>
     <h1>Compound Interest Calculator</h1>
+    <form action="/" method="get" id="ic-form">
+      <label for="ic-initial-value">Initial Value</label>
+      <input
+        type="number"
+        name="ic-initial-value"
+        id="ic-initial-value"
+        value="0"
+        required
+        min="0"
+      />
+
+      <label for="ic-periodic-value">Periodic Value</label>
+      <input
+        type="number"
+        name="ic-periodic-value"
+        id="ic-periodic-value"
+        value="0"
+        required
+        min="0"
+      />
+
+      <label for="ic-interest-rate">Interest Rate %</label>
+      <input
+        type="number"
+        name="ic-interest-rate"
+        id="ic-interest-rate"
+        value="1"
+        required
+        min="0"
+      />
+      <select name="ic-interest-period" id="ic-interest-period" required>
+        <option value="1">Monthly</option>
+        <option value="12">Yearly</option>
+      </select>
+
+      <label for="ic-period">Period</label>
+      <input
+        type="number"
+        name="ic-period"
+        id="ic-period"
+        value="10"
+        required
+        min="1"
+      />
+      <select name="ic-period-unit" id="ic-period-unit" required>
+        <option value="1">Months</option>
+        <option value="12" selected>Years</option>
+      </select>
+
+      <button type="submit">Calculate</button>
+    </form>
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
