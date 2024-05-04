@@ -29,15 +29,19 @@
         min="0"
       />
 
-      <label for="ic-monthly-interest-rate">Montlhy Interest Rate %</label>
+      <label for="ic-interest-rate">Interest Rate %</label>
       <input
         type="number"
-        name="ic-monthly-interest-rate"
-        id="ic-monthly-interest-rate"
+        name="ic-interest-rate"
+        id="ic-interest-rate"
         value="1"
         required
         min="0"
       />
+      <select name="ic-interest-period" id="ic-interest-period" required>
+        <option value="1" selected>Monthly</option>
+        <option value="12">Yearly</option>
+      </select>
 
       <label for="ic-period">Period</label>
       <input

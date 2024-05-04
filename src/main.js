@@ -43,7 +43,8 @@ function renderResult({ total, totalInvested, totalInterest }) {
  *  initialValue: number;
  *  icPeriod: number;
  *  icPeriodUnit: number;
- *  icMonthlyInterestRate: number;
+ *  icInterestRate: number;
+ *  icInterestPeriod: number;
  *  icPeriodicValue: number;
  * }} param0
  * @returns {{
@@ -56,11 +57,13 @@ export function calcInterest({
   initialValue,
   icPeriod,
   icPeriodUnit,
-  icMonthlyInterestRate,
+  icInterestRate,
+  icInterestPeriod,
   icPeriodicValue,
 }) {
   const periodMonths = icPeriod * icPeriodUnit;
-  const monthlyInterestRate = icMonthlyInterestRate / 100;
+  const monthlyInterestRate =
+    Math.pow(icInterestRate / 100 + 1, 1 / icInterestPeriod) - 1;
 
   let total = initialValue;
   let totalInvested = initialValue;
@@ -85,7 +88,8 @@ icForm.addEventListener("submit", (e) => {
   const formData = new FormData(icForm);
   const initialValue = getNumber(formData, "ic-initial-value");
   const icPeriodicValue = getNumber(formData, "ic-periodic-value");
-  const icMonthlyInterestRate = getNumber(formData, "ic-monthly-interest-rate");
+  const icInterestRate = getNumber(formData, "ic-interest-rate");
+  const icInterestPeriod = getNumber(formData, "ic-interest-period");
   const icPeriod = getNumber(formData, "ic-period");
   const icPeriodUnit = getNumber(formData, "ic-period-unit");
 
@@ -94,7 +98,8 @@ icForm.addEventListener("submit", (e) => {
       initialValue,
       icPeriod,
       icPeriodUnit,
-      icMonthlyInterestRate,
+      icInterestRate,
+      icInterestPeriod,
       icPeriodicValue,
     })
   );
