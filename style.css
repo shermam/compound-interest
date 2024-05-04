@@ -1,5 +1,177 @@
+:root {
+  /* Option 1: https://coolors.co/ece4b7-d9dd92-eabe7c-dd6031-311e10 */
+  --vanilla: #ece4b7ff;
+  --straw: #d9dd92ff;
+  --earth-yellow: #eabe7cff;
+  --flame: #dd6031ff;
+  --bistre: #311e10ff;
+
+  /* Option 2: https://www.canva.com/colors/color-palettes/emerald-entrance/ */
+  --tan: #b68d40;
+  --cream: #f4ebd0;
+  --charcoal: #122620;
+  --gold: #d6ad60;
+
+  /* Option 3: https://coolors.co/628395-96897b-dfd5a5-dbad6a-cf995f */
+  --air-force-blue: #628395ff;
+  --beaver: #96897bff;
+  --vanilla: #dfd5a5ff;
+  --earth-yellow: #dbad6aff;
+  --buff: #cf995fff;
+
+  /* Option 4: https://coolors.co/b3001b-262626-255c99-7ea3cc-ccad8f */
+  --cornell-red: #b3001bff;
+  --eerie-black: #262626ff;
+  --lapis-lazuli: #255c99ff;
+  --vista-blue: #7ea3ccff;
+  --tan: #ccad8fff;
+
+  /* Functional */
+  --background: var(--cream);
+  --text: var(--charcoal);
+  --primary: var(--lapis-lazuli);
+  --accent: var(--flame);
+
+  --black: #000000;
+  --white: #ffffff;
+}
+
 html,
 body {
   margin: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding-top: 16px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+}
+
+div#calc-result {
+  margin: 10px;
+}
+
+form#ic-form {
+  margin: 16px;
+  display: grid;
+  column-gap: 16px;
+  grid-template-areas:
+    "label1 label1 label1 label1"
+    "input1 input1 input1 input1"
+    "label2 label2 label2 label2"
+    "input2 input2 input2 input2"
+    "label3 label3 label3 label3"
+    "input3 input3 select1 select1"
+    "label4 label4 label4 label4"
+    "input4 input4 select2 select2"
+    "button button button button";
+}
+
+/* START POSITIONING */
+form#ic-form label[for="ic-initial-value"] {
+  grid-area: label1;
+}
+
+form#ic-form input#ic-initial-value {
+  grid-area: input1;
+}
+
+form#ic-form label[for="ic-periodic-value"] {
+  grid-area: label2;
+}
+
+form#ic-form input#ic-periodic-value {
+  grid-area: input2;
+}
+
+form#ic-form label[for="ic-interest-rate"] {
+  grid-area: label3;
+}
+
+form#ic-form input#ic-interest-rate {
+  grid-area: input3;
+}
+
+form#ic-form select#ic-interest-period {
+  grid-area: select1;
+}
+
+form#ic-form label[for="ic-period"] {
+  grid-area: label4;
+}
+
+form#ic-form input#ic-period {
+  grid-area: input4;
+}
+
+form#ic-form select#ic-period-unit {
+  grid-area: select2;
+}
+
+form#ic-form button {
+  grid-area: button;
+}
+/* END POSITIONING */
+
+form#ic-form label {
+  margin-top: 16px;
+}
+
+/* https://uiverse.io/inputs */
+form#ic-form input,
+form#ic-form select {
+  padding: 15px 15px;
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  outline: none;
+}
+
+form#ic-form input:focus,
+form#ic-form select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* https://uiverse.io/adamgiebl/rude-bear-14 */
+button {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: var(--primary);
+
+  margin-top: 16px;
+  padding: 15px 30px;
+  position: relative;
+  display: inline-block;
+
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.2s;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 var(--primary);
+}
+
+button:hover {
+  color: var(--white);
+  box-shadow: inset 0 -100px 0 0 var(--primary);
+}
+
+button:active {
+  transform: scale(0.9);
 }
