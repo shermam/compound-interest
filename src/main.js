@@ -1,3 +1,5 @@
+const html = String.raw;
+
 /** @type {HTMLFormElement | null} */
 const icForm = document.querySelector("form#ic-form");
 if (!icForm) throw new Error("form not found");
@@ -15,28 +17,52 @@ function get(formData, field) {
   return Number(value);
 }
 
-// ic-initial-value
-// ic-periodic-value
-// ic-interest-rate
-// ic-interest-period
-// ic-period
+/**
+ *
+ * @param {{
+ *   total: number;
+ *   totalInvested: number;
+ *   totalInterest: number;
+ * }} param0
+ */
+function renderResult({ total, totalInvested, totalInterest }) {
+  /** @type {HTMLDivElement | null} */
+  const divResult = document.querySelector("div#calc-result");
+  if (!divResult) throw new Error("form not found");
+
+  divResult.innerHTML = html`
+    <h2>Total: ${total.toFixed(2)}</h2>
+    <h2>Total Invested: ${totalInvested.toFixed(2)}</h2>
+    <h2>Total Interest: ${totalInterest.toFixed(2)}</h2>
+  `;
+}
 
 icForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(icForm);
   const initialValue = get(formData, "ic-initial-value");
   const icPeriodicValue = get(formData, "ic-periodic-value");
-  const icInterestRate = get(formData, "ic-interest-rate");
-  const icInterestPeriod = get(formData, "ic-interest-period");
+  const icMonthlyInterestRate = get(formData, "ic-monthly-interest-rate");
   const icPeriod = get(formData, "ic-period");
   const icPeriodUnit = get(formData, "ic-period-unit");
 
-  console.log({
-    initialValue,
-    icPeriodicValue,
-    icInterestRate,
-    icInterestPeriod,
-    icPeriod,
-    icPeriodUnit,
+  const periodMonths = icPeriod * icPeriodUnit;
+  const monthlyInterestRate = icMonthlyInterestRate / 100;
+
+  let total = initialValue;
+  let totalInvested = initialValue;
+  let totalInterest = 0;
+
+  for (let i = 0; i < periodMonths; i++) {
+    const interest = total * monthlyInterestRate;
+    totalInvested += icPeriodicValue;
+    totalInterest += interest;
+    total += icPeriodicValue + interest;
+  }
+
+  renderResult({
+    total,
+    totalInterest,
+    totalInvested,
   });
 });

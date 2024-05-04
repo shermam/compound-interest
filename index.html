@@ -14,7 +14,7 @@
         type="number"
         name="ic-initial-value"
         id="ic-initial-value"
-        value="0"
+        value="1000"
         required
         min="0"
       />
@@ -24,24 +24,20 @@
         type="number"
         name="ic-periodic-value"
         id="ic-periodic-value"
-        value="0"
+        value="40"
         required
         min="0"
       />
 
-      <label for="ic-interest-rate">Interest Rate %</label>
+      <label for="ic-monthly-interest-rate">Montlhy Interest Rate %</label>
       <input
         type="number"
-        name="ic-interest-rate"
-        id="ic-interest-rate"
+        name="ic-monthly-interest-rate"
+        id="ic-monthly-interest-rate"
         value="1"
         required
         min="0"
       />
-      <select name="ic-interest-period" id="ic-interest-period" required>
-        <option value="1">Monthly</option>
-        <option value="12">Yearly</option>
-      </select>
 
       <label for="ic-period">Period</label>
       <input
@@ -59,6 +55,8 @@
 
       <button type="submit">Calculate</button>
     </form>
+
+    <div id="calc-result"></div>
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
