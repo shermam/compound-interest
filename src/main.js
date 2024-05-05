@@ -31,10 +31,24 @@ function renderResult({ total, totalInvested, totalInterest }) {
   if (!divResult) throw new Error("form not found");
 
   divResult.innerHTML = html`
-    <h2>Total: ${total.toFixed(2)}</h2>
-    <h2>Total Invested: ${totalInvested.toFixed(2)}</h2>
-    <h2>Total Interest: ${totalInterest.toFixed(2)}</h2>
+    <h2>Total: ${formatMoney(total)}</h2>
+    <h2>Total Invested: ${formatMoney(totalInvested)}</h2>
+    <h2>Total Interest: ${formatMoney(totalInterest)}</h2>
   `;
+}
+
+const formatter = new Intl.NumberFormat(navigator.languages, {
+  style: "currency",
+  currency: "USD", // Hardcoded for now
+});
+
+/**
+ *
+ * @param {number} n
+ * @returns {string}
+ */
+function formatMoney(n) {
+  return formatter.format(n);
 }
 
 /**
