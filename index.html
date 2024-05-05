@@ -41,7 +41,7 @@
         min="0"
         step="0.01"
       />
-      <select name="ic-interest-period" id="ic-interest-period" required>
+      <select name="ic-interest-period" id="ic-interest-period" required aria-label="Interest period>
         <option value="1" selected>Monthly</option>
         <option value="12">Yearly</option>
       </select>
@@ -56,7 +56,12 @@
         min="1"
         step="0.01"
       />
-      <select name="ic-period-unit" id="ic-period-unit" required>
+      <select
+        name="ic-period-unit"
+        id="ic-period-unit"
+        required
+        aria-label="Period unit"
+      >
         <option value="1">Months</option>
         <option value="12" selected>Years</option>
       </select>
