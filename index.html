@@ -11,6 +11,35 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Settings dialog -->
+    <dialog>
+      <form action="/" id="settings-form">
+        <fieldset>
+          <legend>Select light or dark mode</legend>
+          <div>
+            <input type="radio" id="light" name="color-mode" value="light" />
+            <label for="light">Light</label>
+          </div>
+          <div>
+            <input type="radio" id="dark" name="color-mode" value="dark" />
+            <label for="dark">Dark</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="system"
+              name="color-mode"
+              value="system"
+              checked
+            />
+            <label for="system">System</label>
+          </div>
+        </fieldset>
+      </form>
+      <button autofocus id="close-dialog">Done</button>
+    </dialog>
+    <button id="settings-button">Settings</button>
+    <!-- Settings dialog -->
     <h1 class="title">Compound Interest Calculator</h1>
     <form action="/" method="get" id="ic-form">
       <label for="ic-initial-value">Initial Value</label>

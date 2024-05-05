@@ -1,3 +1,5 @@
+import "./settings-dialog.js";
+
 import { calcInterest } from "./calc-interest.js";
 import { labelUpdater } from "./label-updater.js";
 import { formatMoney } from "./format-number.js";

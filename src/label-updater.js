@@ -10,7 +10,8 @@ function isHTMLInputElement(v) {
 }
 
 export function labelUpdater() {
-  const labels = document.querySelectorAll("label");
+  /** @type {NodeListOf<HTMLLabelElement>} */
+  const labels = document.querySelectorAll("#ic-form label");
   /** @type {Map<string, string>} */
   const initialValues = new Map();
   for (const label of labels) {
