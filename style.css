@@ -57,6 +57,11 @@ body.dark-mode {
   opacity: 0.75;
 }
 
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 button#settings-button {
   margin: 0 16px 16px 16px;
 }
