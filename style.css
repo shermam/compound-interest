@@ -114,7 +114,6 @@ form#ic-form select {
   border: 2px solid var(--primary);
   border-radius: 5px;
   font-size: 18px;
-  letter-spacing: 1px;
   outline: none;
 }
 
@@ -128,14 +127,10 @@ form#ic-form select:focus {
 button {
   text-align: center;
   font-size: 18px;
-  letter-spacing: 1px;
-  text-decoration: none;
   color: var(--primary);
 
-  margin-top: 16px;
+  margin-top: 32px;
   padding: 15px 30px;
-  position: relative;
-  display: inline-block;
 
   background: transparent;
   cursor: pointer;
