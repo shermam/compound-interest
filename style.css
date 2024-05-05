@@ -133,7 +133,7 @@ form#ic-form label {
 form#ic-form input,
 form#ic-form select {
   padding: 15px 15px;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--primary);
   border-radius: 5px;
   font-size: 18px;
   letter-spacing: 1px;
