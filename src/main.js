@@ -1,6 +1,10 @@
 import { calcInterest } from "./calc-interest.js";
+import { labelUpdater } from "./label-updater.js";
+import { formatMoney } from "./format-number.js";
 
 const html = String.raw;
+
+labelUpdater();
 
 /** @type {HTMLFormElement | null} */
 const icForm = document.querySelector("form#ic-form");
@@ -37,20 +41,6 @@ function renderResult({ total, totalInvested, totalInterest }) {
     <h2>Total Invested: ${formatMoney(totalInvested)}</h2>
     <h2>Total Interest: ${formatMoney(totalInterest)}</h2>
   `;
-}
-
-const formatter = new Intl.NumberFormat(navigator.languages, {
-  style: "currency",
-  currency: "USD", // Hardcoded for now
-});
-
-/**
- *
- * @param {number} n
- * @returns {string}
- */
-function formatMoney(n) {
-  return formatter.format(n);
 }
 
 icForm.addEventListener("submit", (e) => {
